@@ -66,7 +66,7 @@ ServerEvents.recipes( event => {
         'R H'
     ],{
         H: 'rehooked:iron_hook',
-        P: 'gtceu:kanthal_rod',
+        P: 'gtceu:chromium_rod',
         R: 'minecraft:redstone_block'
     })
     //ender_hook => MV
