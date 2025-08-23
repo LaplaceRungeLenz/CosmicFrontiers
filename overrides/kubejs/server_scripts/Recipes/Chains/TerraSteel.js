@@ -29,8 +29,8 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.MV]);
     event.recipes.gtceu.mixer('gtceu:mixer/raw_mana_crystal_slurry')
         .itemInputs('botania:mana_diamond')
-        .inputFluids('gtceu:sulfuric_acid 1000')
-        .inputFluids('minecraft:water 2000')
+        .inputFluids('gtceu:sulfuric_acid 2000')
+        .inputFluids('minecraft:water 1000')
         .outputFluids('gtceu:raw_mana_crystal_slurry 3000')
         .duration(120)
         .EUt(GTValues.VA[GTValues.MV]);
@@ -49,7 +49,7 @@ ServerEvents.recipes(event => {
         .duration(120)
         .EUt(GTValues.VA[GTValues.MV]);
     event.recipes.gtceu.chemical_dehydrator('gtceu:chemical_dehydrator/terrasteel_dust')
-        .itemInputs(['gtceu:manasteel_dust','botania:mana_powder'])
+        .itemInputs(['gtceu:manasteel_dust', 'botania:mana_powder'])
         .inputFluids('gtceu:unstable_terrasteel 1000')
         .itemOutputs('2x gtceu:terrasteel_dust')
         .outputFluids('gtceu:chlorine 500')
@@ -64,7 +64,7 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.MV]);
     event.recipes.gtceu.electric_blast_furnace('gtceu:ebf/terrasteel_ingot_recipe_good')
         .itemInputs('gtceu:terrasteel_dust')
-        .inputFluids('gtceu:potent_mana 1000')
+        .inputFluids('gtceu:potent_mana 100')
         .itemOutputs('botania:terrasteel_ingot')
         .blastFurnaceTemp(1800)
         .duration(2000)
@@ -92,4 +92,28 @@ ServerEvents.recipes(event => {
         .blastFurnaceTemp(2000)
         .duration(1200)
         .EUt(GTValues.VA[GTValues.HV]);
+
+
+    event.recipes.gtceu.industrial_chemvat('terra_steel_skip_part_1')
+        .notConsumable('48x gtceu:zano_aluminate_dust')
+        .itemInputs('3x botania:mana_pearl', 'botania:mana_diamond')
+        .inputFluids('gtceu:sulfuric_acid 2000', 'gtceu:potent_mana 3000', 'minecraft:water 1000')
+        .outputFluids('gtceu:unstable_terrasteel 6000', 'gtceu:diluted_sulfuric_acid 3000')
+        .duration(120)
+        .stationResearch(b => b
+            .researchStack('gtceu:ultradense_terrasteel_plate')
+            .CWUt(16)
+            .EUt(GTValues.VA[GTValues.ZPM]))
+        .EUt(GTValues.VH[GTValues.IV], 4);
+
+    event.recipes.gtceu.industrial_chemvat('terra_steel_skip_part_2')
+        .itemInputs('6x gtceu:manasteel_dust', '6x botania:mana_powder')
+        .inputFluids('gtceu:unstable_terrasteel 6000')
+        .itemOutputs('12x gtceu:terrasteel_dust')
+        .duration(120)
+        .stationResearch(b => b
+            .researchStack('gtceu:ultradense_terrasteel_plate')
+            .CWUt(16)
+            .EUt(GTValues.VA[GTValues.ZPM]))
+        .EUt(GTValues.VH[GTValues.IV], 4);
 })

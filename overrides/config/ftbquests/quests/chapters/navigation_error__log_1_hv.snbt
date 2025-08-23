@@ -7,6 +7,14 @@
 	group: "533DAA16C8D9D30C"
 	icon: "gtceu:titanium_ingot"
 	id: "124E2C5B9FAD4967"
+	images: [{
+		height: 3.5d
+		image: "frontiers:textures/questimages/miscicons/wingedborder.png"
+		rotation: 0.0d
+		width: 3.5d
+		x: 5.571428571428569d
+		y: 0.023809523809518396d
+	}]
 	order_index: 0
 	quest_links: [ ]
 	quests: [
@@ -608,8 +616,7 @@
 				"&5EV&r will contain more &5elaborate extraction lines&r and &ematerial production&r than HV."
 				"Be prepared to &lexpand your power grid&r, &lbolster resource production&r, and &lexpand to new  worlds&r."
 			]
-			hide_until_deps_complete: true
-			hide_until_deps_visible: true
+			hide_until_deps_visible: false
 			id: "7C8367D922103E19"
 			min_width: 350
 			rewards: [
@@ -633,8 +640,8 @@
 					type: "item"
 				}
 			]
-			shape: "octagon"
-			size: 2.0d
+			shape: "hexagon"
+			size: 1.75d
 			subtitle: "To EV and Beyond!"
 			tasks: [{
 				id: "7F5E3BB7347B9FBF"
@@ -1526,7 +1533,7 @@
 				type: "item"
 			}]
 			x: 10.0d
-			y: 3.5d
+			y: 3.0d
 		}
 		{
 			dependencies: ["1A630507AAB765E6"]
@@ -1605,26 +1612,6 @@
 			y: 3.0d
 		}
 		{
-			dependencies: ["38032C6144C06B2B"]
-			icon: "gtceu:mixed_lre_leachate_bucket"
-			id: "3B6079B88AB61576"
-			tasks: [
-				{
-					id: "055D50D90E9D917B"
-					item: "gtceu:mixed_lre_leachate_bucket"
-					type: "item"
-				}
-				{
-					disable_toast: true
-					id: "03933F1576500CAA"
-					title: "Chain Quest - Skip me!"
-					type: "checkmark"
-				}
-			]
-			x: 10.0d
-			y: 2.5d
-		}
-		{
 			dependencies: ["7C280469C5926E0A"]
 			description: [
 				"Platinum and Palladium Production isn't really needed in HV - However it's listed here be cause this is the earliest you CAN do it. - It's useful for SMD diodes."
@@ -1645,10 +1632,7 @@
 			y: -3.0d
 		}
 		{
-			dependencies: [
-				"3B6079B88AB61576"
-				"483EDAD71360C4C4"
-			]
+			dependencies: ["483EDAD71360C4C4"]
 			id: "1A630507AAB765E6"
 			tasks: [{
 				id: "102D74DD3691DB10"
@@ -1808,7 +1792,7 @@
 			]
 			title: "The Song"
 			x: 6.5d
-			y: -2.5d
+			y: -3.0d
 		}
 		{
 			dependencies: ["7C8367D922103E19"]
@@ -1833,7 +1817,7 @@
 				type: "checkmark"
 			}]
 			x: 6.5d
-			y: -1.5d
+			y: -2.0d
 		}
 	]
 	title: "Gloomper Chemistry [HV]"

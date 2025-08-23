@@ -5,6 +5,7 @@ let yeet = (itemName) => {
     event.remove({ output: itemName })
   })
   ServerEvents.tags('item', event => {
+    console.log('[15] - [1] - TAG-WATCHER')
     event.add('c:hidden_from_recipe_viewers', itemName)
 
   })
@@ -38,13 +39,14 @@ yeet('occultism:ritual_dummy/summon_djinni_crusher')
 yeet('occultism:ritual_dummy/summon_afrit_crusher')
 yeet('occultism:ritual_dummy/summon_marid_crusher')
 yeet('occultism:wormhole_frame')
-yeet('occultism:satchel')
+// yeet('occultism:satchel')
 
 
 
 
 
 ServerEvents.tags('item', event => {
+  console.log('[15] - [2] - TAG-WATCHER')
   event.remove('forge:ingots/silver', 'occultism:silver_ingot')
   event.remove('forge:dusts/iron', 'occultism:iron_dust')
   event.remove('forge:dusts/gold', 'occultism:gold_dust')
@@ -174,6 +176,14 @@ ServerEvents.recipes(event => {
     .inputFluids('gtceu:creosote 1000')
     .itemOutputs('occultism:chalk_purple_impure')
     .duration(800)
+
+    event.recipes.gtceu.electric_blast_furnace('purple_chalk_melding')
+    .itemInputs(['occultism:chalk_white_impure', '8x gtceu:soulresin_ingot', '4x gtceu:cinderwax_ingot'])
+    .inputFluids('gtceu:oxygen 250')
+    .itemOutputs('occultism:chalk_purple_impure')
+    .blastFurnaceTemp(800)
+    .duration(240)
+    .EUt(128)
   event.recipes.occultism.miner(
     Item.of('cosmiccore:rune_slate_arklys').withChance(50),
     'occultism:miner_foliot_unspecialized'
@@ -205,6 +215,10 @@ ServerEvents.recipes(event => {
   event.recipes.occultism.miner(
     Item.of('malum:cluster_of_brilliance').withChance(75),
     'malum:soul_stained_steel_pickaxe'
+  )
+  event.recipes.occultism.miner(
+    Item.of('minecraft:ancient_debris').withChance(2),
+    'minecraft:netherite_pickaxe'
   )
   event.recipes.occultism.ritual(
     '16x gtceu:runed_steel_ingot',
@@ -278,6 +292,69 @@ ServerEvents.recipes(event => {
     'occultism:craft_djinni'
   ).dummy('occultism:ritual_dummy/craft_dimensional_mineshaft').id("occultism:frontiers.fusion_ritual.dim_mineshaft")
 
+  event.recipes.occultism.ritual(
+   '3x legendarysurvivaloverhaul:sun_fern_seeds',
+   [
+     "minecraft:glowstone",
+     "minecraft:glowstone",
+     "biomesoplenty:burning_blossom",
+     "biomesoplenty:burning_blossom",
+     "#botania:petals",
+     "#botania:petals",
+     "#ars_nouveau:magic_shards",
+     "#ars_nouveau:magic_shards"
+   ],
+   "minecraft:fern",
+   'occultism:basic_fusion'
+ ).dummy("kubejs:dummy_ritual_thing").id("occultism:frontiers.sun_fern1")
+ event.recipes.occultism.ritual(
+    '3x legendarysurvivaloverhaul:sun_fern_seeds',
+    [
+      "minecraft:glowstone",
+      "minecraft:glowstone",
+      "biomesoplenty:burning_blossom",
+      "biomesoplenty:burning_blossom",
+      "#botania:petals",
+      "#botania:petals",
+      "legendarysurvivaloverhaul:ice_fern_leaf",
+      "legendarysurvivaloverhaul:ice_fern_leaf"
+    ],
+    "minecraft:fern",
+    'occultism:basic_fusion'
+  ).dummy("kubejs:dummy_ritual_thing").id("occultism:frontiers.sun_fern2")
+
+  event.recipes.occultism.ritual(
+     '3x legendarysurvivaloverhaul:ice_fern_seeds',
+     [
+       "minecraft:snow_block",
+       "minecraft:snow_block",
+       "#forge:dusts/ice",
+       "#forge:dusts/ice",
+       "#botania:petals",
+       "#botania:petals",
+       "#ars_nouveau:magic_shards",
+       "#ars_nouveau:magic_shards"
+     ],
+     "minecraft:fern",
+     'occultism:basic_fusion'
+   ).dummy("kubejs:dummy_ritual_thing").id("occultism:frontiers.ice_fern1")
+   event.recipes.occultism.ritual(
+      '3x legendarysurvivaloverhaul:ice_fern_seeds',
+      [
+        "minecraft:snow_block",
+        "minecraft:snow_block",
+        "#forge:dusts/ice",
+        "#forge:dusts/ice",
+        "#botania:petals",
+        "#botania:petals",
+        "legendarysurvivaloverhaul:sun_fern_leaf",
+        "legendarysurvivaloverhaul:sun_fern_leaf"
+      ],
+      "minecraft:fern",
+      'occultism:basic_fusion'
+    ).dummy("kubejs:dummy_ritual_thing").id("occultism:frontiers.ice_fern2")
+
+
   //Using Event.custom because i'm too lazy to try and parse this
   event.custom({
     "type": "occultism:ritual",
@@ -309,7 +386,7 @@ ServerEvents.recipes(event => {
         "item": "minecraft:gunpowder"
       },
       {
-        "item": "legendarysurvivaloverhaul:sun_fern_gold_leaf"
+        "item": "minecraft:gold_ingot"
       }
     ],
     "result": {
